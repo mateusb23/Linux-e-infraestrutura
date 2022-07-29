@@ -1,4 +1,6 @@
-PRINCIPAIS COMANDOS DO GIT
+
+                          PRINCIPAIS COMANDOS DO GIT
+                          
 - git init --> para iniciar/criar um repositório do git dentro da pasta onde esse comando é executado
 - git add --> para mover arquivos e dar início ao versionamento
 - git commit --> criar commit 0BS: commits são os objetos do git que dão significados às alterações, 
@@ -77,3 +79,5 @@ repositório do github que copiamos de lá.
 $ git remote -v --> vai mostrar a lista de repositórios remotos que eu tenho cadastrados
 $ git status
 $ git push origin master --> vai empurrar o nosso arquivo diretamente para o repositório no github
+
+
