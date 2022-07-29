@@ -1,0 +1,79 @@
+PRINCIPAIS COMANDOS DO GIT
+- git init --> para iniciar/criar um repositório do git dentro da pasta onde esse comando é executado
+- git add --> para mover arquivos e dar início ao versionamento
+- git commit --> criar commit 0BS: commits são os objetos do git que dão significados às alterações, 
+  que carregam mensagens de texto junto com outros metadados, como autor, a hora que o commit foi criado etc.
+
+CRIANDO UM REPOSITÓRIO
+Obs1: criei um diretório chamado 'workspace' na pasta home do meu usuário que está em meu desktop pessoal.
+Obs2: A partir de agora, irei colocando os comandos que fui aplicando ao decorrer do processo em si.
+$ cd ~/workspace
+$ mkdir livro-receitas --> essa será a pasta de teste onde irá ficar o nosso projeto de teste.
+$ cd teste02
+$ git init --> dentro da pasta teste02 executamos o comando git init para inicializá-lo e possibilitar 
+que o git comece, de fato a gerenciar e versionar o nosso código.
+$ ls -a --> irá nos mostrar a pasta .git que foi criada dentro do diretório atual
+$ cd .git/ --> para entrar na tal pasta criada
+$ ls --> irá mostrar toda uma estrutura já criada para o git
+$ cd ..
+$ git config --global user.email "mateusb.bispo@gmail.com" --> para atrelar um
+e-mail ao autor do commit que será criado mais à frente
+$ git config --global user.name mateusb23 --> para atrelar um usuário ao autor do commit que será criado mais à frente
+
+ADICIONANDO UM ARQUIVO e USANDO O COMMIT
+$ cd ~/workspace/teste02
+$ vim qualquertextoprateste.txt --> criei dentro da pasta teste02 qualquer texto só para testarmos o processo mesmo.
+$ git add * --> adicionando arquivo ao gerenciamento do git
+$ git commit -m "commit inicial" --> colocamos esse nome apenas para mostrardepois como a coisa se deu, ao decorrer 
+do processo, dentro das nossas alterações etc.
+OBS: após executarmos o comando acima, o terminal nos trará:
+[master (root-commit) 070b2b9] commit inicial
+1 file changed, 1 insertion(+)
+create mode 100644 qualquertextoprateste.txt
+-> esse 070b2b9 mostrado é uma parte de sha1(caractere encriptado e que
+identifica o commit que criamos, que foi descrito como commit inicial).
+
+PASSO A PASSO NO CICLO DE VIDA DE ARQUIVOS E REPOSITÓRIOS
+- Untracked --> é quando o git não sabe da existência do arquivo, ou seja, foi quando
+criamos o arquivo de texto qualquertextoprateste.txt no do diretório teste02, mas ainda não
+tínhamos executado o comando git add * 
+
+OBS: Quando executamos o comando git add * , o arquivo de texto saiu de
+Untracked e foi direto para Staged.
+- Unmodified --> é o arquivo que ainda não mofidicado
+- Modified --> é o arquivo que sofre modificação/edição OBS: Assim que o arquivo
+sai de Unmodified para Modified, o sha1 vai estar diferente de antes. OBS: E se
+executarmos novamente o comando git add nesse arquivo de texto, ele irá de Modified
+novamente para Staged.
+- Staged --> é onde ficam os arquivos que estão se preparando pra poder fazer
+parte de um outro tipo de agrupamento, que é justamente um commit. OBS: E o commit
+retorna o arquivo para unmodified, para que, dessa forma, tenhamos como fazer sempre
+alterações e modificações no arquivo.
+
+COMO APONTAR O NOSSO REPOSITÓRIO LOCAL PARA UM AMBIENTE
+
+REMOTO(o próprio github.com)
+$ cd ~/workspace/teste02
+$ git status -> vai nos mostrar o status dos arquivos. Por exemplo, vai nos dizer se o
+arquivo é untracked, unmodified etc
+$ mkdir exemplos-testes --> criamos um diretório para colocar os arquivos de texto
+que formos criando
+$ mv qualquertextoprateste.txt exemplos-testes --> movemos o arquivo de texto que
+havíamos criado para dentro do diretório exemplos-testes
+$ cd ..
+$ git status --> o git vai pensar que excluímos o arquivo de texto, porém ele não
+sabe que movemos para outro diretório
+$ git add qualquertextoprateste.txt exemplos-testes/ --> modificamos o status dos
+arquivos para Staged
+$ git status --> o git vai dizer que os arquivos estão prontos para ser commitados
+$ git config --list --> vai mostrar toda a configuração do nosso git na máquina local
+OBS: $ git config --global user.name e o comando $ git config --global
+user.email --> Caso você precise alterar o email ou usuário.
+-> aqui fomos no github.com e criamos um repositório lá no site.
+-> em seguida, voltamos ao terminal
+$ git remote add origin https://github.com/mateusb23/teste02.git --> justamente para
+começarmos os processo de envio de arquivos para o github através do link do próprio
+repositório do github que copiamos de lá.
+$ git remote -v --> vai mostrar a lista de repositórios remotos que eu tenho cadastrados
+$ git status
+$ git push origin master --> vai empurrar o nosso arquivo diretamente para o repositório no github
