@@ -1,1 +1,24 @@
 
+		--> CAMINHO DA PASTA <--
+
+o arquivo de configuração está dentro da pasta network -->  /etc/network
+
+vim /etc/network/interfaces
+
+
+-->  CONFIGURAÇÃO DO ARQUIVO DE REDE <--
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+allow-hotplug enp0s3
+# iface enp0s3 inet dhcp
+auto enp0s3
+iface enp0s3 inet static
+address 192.168.2.226
+netmask 255.255.255.0
+network 192.168.2.0
+broadcast 192.168.2.255
+gateway 192.168.2.253
