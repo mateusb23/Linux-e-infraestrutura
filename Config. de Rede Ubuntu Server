@@ -1,4 +1,5 @@
-        --> CAMINHO DA PASTA <--
+       
+       --> CAMINHO DA PASTA <--
 
 
 o arquivo de configuração está dentro da pasta netplan --> /etc/natplan
@@ -34,3 +35,5 @@ network:
    - 192.168.100.1
    search: []
 version: 2
+
+
