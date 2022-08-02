@@ -1,0 +1,24 @@
+INSTALAÇÃO DO ZABBIX (com nginx) NO ORACLE LINUX 8
+
+-> $ su --> entrar como root
+-> $ cat etc/*release --> para ver a versão do SO
+-> $ timedatectl status
+-> $ timedatectl set-timezone America/Recife
+-> $ dnf -y install chrony
+-> $ systemctl enable --now chronyd
+-> $ systemctl status chronyd
+-> $ systemctl status firewalld
+-> $ firewall-cmd --permanent --add-service=http
+-> $ firewall-cmd --reload
+-> $ dnf install -y net-tools vim nano wget curl tcpdump
+-> $ getenforce
+-> $ vim /etc/selinux/config
+-> $ dnf info mysql-server
+-> $ dnf install mysql-server -y
+--> $ systemctl enable --now mysqld
+--> $ systemctl status mysqld
+--> $ mysql
+--> > create database zabbix character set utf8mb4 collate utf8mb4_bin;
+--> > create user 'zabbix'@'localhost' identified by 'server2022';
+--> > grant all privileges on zabbix.* to 'zabbix'@'localhost';
+--> > flush privileges;
