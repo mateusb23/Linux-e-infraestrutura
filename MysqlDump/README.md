@@ -1,0 +1,1 @@
+Mysqldump é uma ferramenta que podemos utilizar para fazer backups de bancos de dados MySql e MariaDB instalados em sistemas Linux. Com ela podemos fazer sistemas em shell script, por exemplo, para automatizar rotinas de backup para os bancos citados acima.
