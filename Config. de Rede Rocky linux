@@ -1,0 +1,33 @@
+Configuração de rede IP fixo -  Rocky linux / CentOS
+
+
+Caminho do arquivo de configuração de rede: 
+
+$  cd /etc/sysconfig/network-scripts/
+
+$ sudo vim /etc/sysconfig/network-scripts/ifcfg-Conexão_de_ethernet_1
+
+
+
+TYPE=Ethernet
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=none
+IPADDR=192.168.100.207
+PREFIX=24
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6_DISABLED=yes
+IPV6INIT=no
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME="Conexão de ethernet 1"
+UUID=d557c87d-cd26-4e2f-ab19-800068f78483
+ONBOOT=yes
+GATEWAY=192.168.100.1
+DNS1=8.8.8.8
+DNS2=8.8.4.4
+DNS3=192.168.100.1
+DEVICE=enp1s0
+
