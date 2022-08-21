@@ -1,0 +1,27 @@
+Arquivo de configuração da rede (Fedora 36)
+
+-> Localização: /etc/NetworkManager/system-connections/
+-> Arquivo que provavelmente irá aparecer, ao exercutarmos ‘ls’ : 'Conexão cabeada
+1.nmconnection'
+→$ sudo vim /etc/NetworkManager/system-connections/'Conexão cabeada 1.nmconnection'
+-> Script do arquivo de configuração de rede:
+# sudo cat /etc/NetworkManager/system-connections/'Conexão cabeada 1.nmconnection'
+[sudo] senha para mateusbispo:
+[connection]
+id=Conexão cabeada 1
+uuid=d147a6d0-ab75-338e-a345-799921a23069
+type=ethernet
+autoconnect-priority=-999
+interface-name=enp1s0
+timestamp=1650035608
+[ethernet]
+[ipv4]
+address1=192.168.0.109/24,192.168.0.1
+dns=8.8.8.8;8.8.4.4;192.168.0.1;
+method=manual
+[ipv6]
+addr-gen-mode=stable-privacy
+method=auto
+[proxy]
+
+→ $ cd /run/NetworkManager/system-connections
