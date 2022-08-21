@@ -1,0 +1,32 @@
+COMO CRIPTOGRAFAR ARQUIVOS NO LINUX COM O COMANDO shred
+
+
+1o) Vamos criar um arquivo qualquer:
+$ vim arquivoconfidencial.txt
+→ contendo as seguintes informações:
+Senha 1: cabelogrande123
+Senha 2: cabelocurto1234
+Senha 3: Detroit2050
+Senha 4: cachorrodss$%9087
+
+2o) Utilizaremos o comando ‘shred’. Ele basicamente vai sobrescrever com várias
+camadas o nosso arquivo de texto criado anteriormente, tornando, dessa forma,
+praticamente impossível de ser recuperado até com perícia forense.
+$ shred arquivoconfidencial.txt
+
+3o) Com isso, ao acessarmos novamente o arquivo, ele estará muito maior e cheio
+de caracteres e números sobrescrevendo as antigas informações(nesse caso, as
+nossas senhas). E agora sim podemos apagar o arquivo sem medo de que as
+informações possam ser descobertas.
+$ rm -rf arquivoconfidencial.txt
+
+-> Formas de uso do ‘shred’:
+1) Quantas vezes eu quero sobrescrever aquele arquivo confidencial:
+$ shred -n 10 -v arquivoconfidencial.txt
+Sobrescreveu as antigas informações por 10 vezes.
+2) Faz a mesma coisa do 1), porém, ainda adiciona zeros(000...):
+$ shred -n 10 -z -v arquivoconfidencial.txt
+
+3) Faz a mesma coisa do 1) e 2), porém, ele já exclui o arquivo logo em
+seguida:
+$ shred -n 10 -z -v -u arquivoconfidencial.txt
