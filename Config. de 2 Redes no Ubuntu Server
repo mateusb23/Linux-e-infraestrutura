@@ -1,0 +1,43 @@
+→ Caminho da pasta ←
+
+O arquivo de configuração está dentro do diretório netplan ->
+/etc/netplan
+
+- O arquivo de configuração da rede vai estar como: 00-installer-config.yaml
+- Com o ip da rede 1 já fixada no 00-installer-config.yaml, iremos criar dentro do
+diretório /etc/netplan um outro arquivo chamado 01-installer-config.yaml (por
+exemplo) de rede referente a outra interface que queremos fixar a outra rede e
+iremos inserir a configuração da nova rede, a rede 2.
+# sudo vim 01-installer-config.yaml
+
+- As duas interfaces de rede ficaram da seguinte forma:
+# cd /etc/netplan
+# ls
+00-installer-config.yaml 01-installer-config.yaml
+# sudo cat 00-installer-config.yaml
+# This is the network config written by 'subiquity'
+network:
+version: 2
+renderer: networkd
+ethernets:
+enp0s3:
+dhcp4: no
+dhcp6: no
+addresses: [192.168.2.227/24]
+gateway4: 192.168.2.253
+nameservers:
+addresses: [8.8.8.8,8.8.4.4,192.168.2.254]
+
+# sudo cat 01-installer-config.yaml
+# This is the network config written by 'subiquity'
+network:
+version: 2
+renderer: networkd
+ethernets:
+enp0s8:
+dhcp4: no
+dhcp6: no
+addresses: [10.168.17.67/22]
+gateway4: 10.168.18.254
+nameservers:
+addresses: [8.8.8.8,8.8.4.4]
