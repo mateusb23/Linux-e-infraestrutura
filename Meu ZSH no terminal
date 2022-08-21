@@ -1,0 +1,21 @@
+Instalar e configurar o meu zsh no fedora 36
+
+-> Instalar o zsh
+# sudo dnf install zsh -y
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+-> Tornar o zsh padrão no terminal linux Fedora 36:
+
+1) Acesse o arquivo bashrc que está em /etc. E adicione → bash -c zsh ← à linha 11, para
+que, dessa forma, seja o primeiro comando do bash.
+# sudo vim /etc/bashrc
+-> Meus temas favoritos no zsh:
+- gallois
+- xiong-chiamiov
+- duellj
+-> O arquivo do zsh --> .zshrc <-- fica na pasta home do usuário que a instalou. --> ~/
+# sudo vim ~/.zshrc
+
+2) Altere a linha 11 do arquivo .zshrc , onde vai ter o apontamento para o tema que preferir.
+É quase assim que vai estar na linha 10 --> ZSH_THEME="ESCOLHA O SEU TEMA
+FAVORITO"
