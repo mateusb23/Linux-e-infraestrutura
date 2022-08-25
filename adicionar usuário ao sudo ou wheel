@@ -1,0 +1,54 @@
+Criar usuário e adicioná-lo ao grupo sudo, wheel
+
+Passo 1 — Adicionando um novo usuário ao sistema
+com o comando adduser :
+$ adduser fiodor
+
+use o comando passwd para atualizar a nova senha do usuário:
+
+$ passwd fiodor
+
+Passo 2.0 — Adicionando o usuário ao grupo wheel
+(para sistemas baseados em Red Heat). comando usermod. Obs: O grupo whell é equivalente ao grupo sudo no Debian.
+
+$ usermod -aG wheel fiodor
+
+Passo 2.0 — Adicionando o usuário ao grupo sudo (para sistemas baseados em Debian - Ubuntu). comando usermod
+
+$ usermod -aG sudo fiodor
+
+Passo 2.1 — Adicionando o usuário ao grupo sudoers (para sistemas baseados em Debian - Ubuntu).
+
+É recomendável usar visudo para editar o arquivo /etc/sudoers. Depois
+disso, ele verifica se há erros de sintaxe ao salvá-lo. O arquivo não será
+salvo se houver erros. Se você abrir o arquivo com um editor de texto
+diferente, um erro de sintaxe pode resultar na perda do acesso ao sudo.
+
+Para permitir que usuário execute comandos sudo sem senha, edite o
+arquivo /etc/sudoers:
+
+visudo
+Não se esqueça de alterar o “username” com o nome de usuário ao qual
+deseja conceder acesso. Role para baixo até o final do arquivo e adicione
+a linha:
+
+/etc/sudoers
+
+username ALL=(ALL) NOPASSWD:ALL
+Outro exemplo comum é permitir que o usuário execute apenas comandos
+específicos via sudo, usando apenas os comandos mkdir, rmdir:
+
+/etc/sudoers
+
+username ALL=(ALL) NOPASSWD:/bin/mkdir,/bin/rmdir
+você pode também criar um arquivo com as regras de autorização no
+/etc/sudoers.d. Adicione a mesma regra que você adicionaria ao arquivo
+sudoers:
+
+echo "username ALL=(ALL) NOPASSWD:ALL" | sudo tee
+/etc/sudoers.d/username
+Este exemplo torna o gerenciamento dos privilégios do sudo mais fácil. É
+uma prática comum que o nome do arquivo seja igual ao nome do usuário.
+
+Conceder acesso sudo a um usuário no Linux é simples, você só precisa
+adicionar o usuário ao grupo “sudo”.
