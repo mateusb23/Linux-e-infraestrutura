@@ -1,0 +1,6 @@
+
+-->  COMO CONECTAR COM CHAVES A UM SERVIDOR LINUX NA AWS  <--
+
+ $ sudo chmod 600 Ubuntu-AWS.pem  --> 1º) damos uma permissão para que qualquer usuário consiga acessar as chaves, porém, sem que tenham total acesso às mesmas. 						
+
+ $ ssh -i Ubuntu-AWS.pem ubuntu@3.21.236.14  -> 2º) utilizamos a chave dessa forma, onde Ubuntu-AWS.pem é justamente o nome do arquivo que contém as chaves que a AWS me disponibilizou.
