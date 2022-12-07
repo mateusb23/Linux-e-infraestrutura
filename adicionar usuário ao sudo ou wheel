@@ -1,3 +1,6 @@
+      OS PASSOS DESCRITOS ABAIXO SERVEM PARAR SISTEMAS LINUX BASEADOS EM DEBIAN E RED HAT
+      
+      
 Criar usuário e adicioná-lo ao grupo sudo, wheel
 
 Passo 1 — Adicionando um novo usuário ao sistema
