@@ -1,1 +1,0 @@
-Neste repositório temos um arquivo de docker compose que, quando executado, criaum banco PostgreSQL na versão 13 persistente com relação aos dados e sem a limitação de 64MB padrão do docker com relação ao consumo em memória cache. 
