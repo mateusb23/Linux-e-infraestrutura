@@ -1,0 +1,5 @@
+  # DIGITE NO TERMINAL:
+
+$ sudo docker container run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
+
+--> ONDE -p ESTÁ REFERINDO-SE À PORTA NA QUAL IREMOS NOS COMUNICAR COM O CONTAINER DO PORTAINER E POR QUAL PORTA INTERNA DO PRÓPRIO PORTAINER SERÁ FEITA ESSA COMUNICAÇÃO. 

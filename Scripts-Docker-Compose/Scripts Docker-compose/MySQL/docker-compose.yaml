@@ -1,0 +1,15 @@
+version: '3.3'
+
+services:
+  mysql:
+    image: mysql:8
+    ports:
+      - 3306:3306
+    volumes:
+      - ~/apps/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=server2022
+      - MYSQL_PASSWORD=server2021
+      - MYSQL_USER=administrador
+      - MYSQL_DATABASE=devdb
+

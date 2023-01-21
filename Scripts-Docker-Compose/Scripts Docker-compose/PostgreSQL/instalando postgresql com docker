@@ -1,0 +1,52 @@
+
+				INSTALANDO O BANCO POSTGRESQL COM DOCKER
+
+$ systemctl enable docker
+
+$ docker run -d -i -t -p5432:5432 -ePOSTGRES_PASSWORD=server2022 postgres:13
+
+				ENTRETANTO, A MELHOR FORMA PARA SE CONSTRUIR UM CONTAINER É:
+
+-> criar um documento no formato .yml que, convencionalmente, chamamos por docker-compose.yml
+
+$ vim docker-compose.yml
+
+-> e dentro do script docker-compose.yml, eu escrevi:
+
+version: '3.5'
+
+
+volumes:
+  data:
+
+services:
+  database:
+    image: postgres:13
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=server2022
+    volumes:
+      - data:/var/lib/postgresql/data
+      - type: tmpfs
+        target: /dev/shm 
+
+->  conforme podemos observar no script acima,  nosso compose está com alguns detalhes importantes
+     que foram cuidadosamente adicionados. Um deles foi o mapeamento para o volume data, o qual irá 
+     propiciar uma maior persistência ao banco, visto que, a partir do momento em que formos desligar o 
+     container, ou desligar o host, os dados serão mantidos no volume. 
+     
+-> Para quem deseja colocar o PosgreSQL em produção, é importante saber que esse banco no docker limita por padrão apenas 64 MB em tmpfs no Linux, os quais são suficientes para fins de estudo e desenvolvimento. Resolvemos o problema em questão com as linhas - type: tmpfs e  target: /dev/shm  , que vai fazer com que o banco o cash em memória ram não fique limitado àqueles 64MB. 
+
+ -> APÓS TUDO ISSO, VAMOS CRIAR O CONTAINER:
+ 	-> OBS: dentro da pasta onde criamos o arquivo docker-compose.yml, executaremos o seguinte comando: 
+ 	
+$  docker compose up -d 
+	-> obs: o -d  é para que o usuário não perca o domínio do terminal
+	
+$ docker container ls
+	-> vai mostrar o container que você acabou de criar.
+ 
+ 
+
+
